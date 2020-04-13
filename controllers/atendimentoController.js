@@ -6,10 +6,8 @@ module.exports =  (app) => {
             res.send('Voce esta na rota de atendimentos pelo controller GET');
         })
         .post((req,res)=>{
-            console.log(req.body);
             const atendimento = req.body;
-            Atendimento.adicionar(atendimento);
-            res.send('Voce esta na rota de atendimentos pelo controller POST');
+            Atendimento.adicionar(atendimento,res);
         });
 }
 
