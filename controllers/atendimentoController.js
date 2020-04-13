@@ -1,3 +1,4 @@
+const Atendimento = require('../models/atendimentos');
 
 module.exports =  (app) => {
     app.route('/atendimentos')
@@ -6,6 +7,9 @@ module.exports =  (app) => {
         })
         .post((req,res)=>{
             console.log(req.body);
+            const atendimento = req.body;
+            Atendimento.adicionar(atendimento);
             res.send('Voce esta na rota de atendimentos pelo controller POST');
         });
 }
+
