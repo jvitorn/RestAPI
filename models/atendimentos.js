@@ -43,12 +43,60 @@ class Atendimento {
                     res.status(400).json(error)
                 }else{
                     //201 - created    - server
-                    res.status(201).json(results)
+                    res.status(201).json({...atendimento})
                 }
             });
         }
 
         
+    }
+    listar(res){
+        const sql = 'SELECT * FROM atendimentos';
+
+        connection.query(sql,(error,results)=>{
+            if(error){
+                res.status(400).json(error);
+            }else{
+                res.status(200).json({results});
+            }
+        });
+    }
+    buscaPorId(id,res){
+        const sql = `SELECT * FROM atendimentos WHERE id  = ${id}`;
+       
+        connection.query(sql,(error,results)=>{
+            const atendimento = results[0];
+            if(error){
+                res.status(400).json(error);
+            }else{
+                res.status(200).json(atendimento);
+            }
+        });
+    }
+    alterar(id,valores,res){
+        if(valores.data){
+            valores.data = moment(valores.data,'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+        }
+       const sql = "UPDATE atendimentos SET ? WHERE id = ?";
+       
+       connection.query(sql,[valores,id],(error,results)=>{
+            if(error){
+                res.status(400).json(error);
+            }else{
+                res.status(200).json({msg:"Dados alterados com sucesso"});
+            }
+       });
+    }
+    deletar(id,res){
+        const sql = "DELETE FROM atendimentos WHERE id =?";
+
+        connection.query(sql,id,(error,results)=>{
+            if(error){
+                res.status(400).json(error);
+            }else{
+                res.status(200).json({id,msg:'Esse Id Foi removido com Sucesso'});
+            }
+        });
     }
 }
 module.exports = new Atendimento;
