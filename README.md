@@ -3,9 +3,10 @@ Este repositorio é para a conclusao de APIs Rest com NodeJS
 ## Instalação de Dependencias 
 Dependencias Utilizadas nesse projeto : 
  * `Express `
+ * `Consign` 
 
 Para a instalação poderá usar o comando
 ```
 npm init
-npm install express
+npm install express consign 
 ```
