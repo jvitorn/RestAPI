@@ -2,13 +2,18 @@
 Este repositorio é para a conclusao de APIs Rest com NodeJS
 ## Instalação de Dependencias 
 Dependencias Utilizadas nesse projeto : 
- * `Express `
- * `Consign`
- * `My Sql` 
+ * `Express `- App
+ * `Consign` - Auxilia nos Imports
+ * `My Sql`  - Banco De Dados
+ * `Moment`  - Manipulações de Data
 
-Para a instalação poderá usar o comando
+Para a instalação poderá usar o comando para inicializar um projeto
 ```
 npm init
-npm install express consign mysql
+
+```
+Para a instalação das dependencias podera utilizar este comando
+```
+npm install express consign mysql moment 
 
 ```
