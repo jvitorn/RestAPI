@@ -14,6 +14,6 @@ npm init
 ```
 Para a instalação das dependencias podera utilizar este comando
 ```
-npm install express consign mysql moment 
+npm install 
 
 ```
